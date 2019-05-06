@@ -12,7 +12,7 @@ import { ProfileHeader } from './ProfileHeader.js';
 const iconStyle = {
   styles: React.createElement(_JSXStyle, {
     id: "2224778647"
-  }, `svg.jsx-2224778647{fill:${colors.grey700};cursor:pointer;height:24px;width:24px;}`),
+  }, [`svg.jsx-2224778647{fill:${colors.grey700};cursor:pointer;height:24px;width:24px;}`]),
   className: "jsx-2224778647"
 };
 const list = [{
@@ -91,7 +91,7 @@ const ProfileContents = ({
   icon: icon
 }))))), iconStyle.styles, React.createElement(_JSXStyle, {
   id: "4035402915"
-}, "div.jsx-4035402915{width:100%;padding:0;}ul.jsx-4035402915{padding:0;margin:0;}a.jsx-4035402915,a.jsx-4035402915:hover,a.jsx-4035402915:focus,a.jsx-4035402915:active,a.jsx-4035402915:visited{-webkit-text-decoration:none;text-decoration:none;}"));
+}, ["div.jsx-4035402915{width:100%;padding:0;}", "ul.jsx-4035402915{padding:0;margin:0;}", "a.jsx-4035402915,a.jsx-4035402915:hover,a.jsx-4035402915:focus,a.jsx-4035402915:active,a.jsx-4035402915:visited{-webkit-text-decoration:none;text-decoration:none;}"]));
 
 export const ProfileMenu = ({
   avatar,
@@ -105,4 +105,4 @@ export const ProfileMenu = ({
   avatar: avatar
 }), React.createElement(_JSXStyle, {
   id: "3620236321"
-}, "div.jsx-3620236321{z-index:10000;position:absolute;top:34px;right:-6px;width:310px;border-top:4px solid transparent;}"));
+}, ["div.jsx-3620236321{z-index:10000;position:absolute;top:34px;right:-6px;width:310px;border-top:4px solid transparent;}"]));

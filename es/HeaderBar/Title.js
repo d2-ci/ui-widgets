@@ -8,4 +8,4 @@ export const Title = ({
   className: "jsx-2721515324"
 }, app ? `${instance} - ${app}` : `${instance}`, React.createElement(_JSXStyle, {
   id: "2721515324"
-}, "div.jsx-2721515324{overflow:hidden;text-overflow:ellipsis;font-size:14px;font-weight:500;-webkit-letter-spacing:0.01em;-moz-letter-spacing:0.01em;-ms-letter-spacing:0.01em;letter-spacing:0.01em;white-space:nowrap;}"));
+}, ["div.jsx-2721515324{overflow:hidden;text-overflow:ellipsis;font-size:14px;font-weight:500;-webkit-letter-spacing:0.01em;-moz-letter-spacing:0.01em;-ms-letter-spacing:0.01em;letter-spacing:0.01em;white-space:nowrap;}"]));

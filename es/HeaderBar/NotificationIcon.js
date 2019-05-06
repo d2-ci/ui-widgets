@@ -7,13 +7,13 @@ import { Message } from '../icons/Message.js';
 const messageIcon = {
   styles: React.createElement(_JSXStyle, {
     id: "255544020"
-  }, `svg.jsx-255544020{fill:${colors.white};cursor:pointer;height:24px;width:24px;}`),
+  }, [`svg.jsx-255544020{fill:${colors.white};cursor:pointer;height:24px;width:24px;}`]),
   className: "jsx-255544020"
 };
 const interpretationIcon = {
   styles: React.createElement(_JSXStyle, {
     id: "255544020"
-  }, `svg.jsx-255544020{fill:${colors.white};cursor:pointer;height:24px;width:24px;}`),
+  }, [`svg.jsx-255544020{fill:${colors.white};cursor:pointer;height:24px;width:24px;}`]),
   className: "jsx-255544020"
 };
 
@@ -41,7 +41,7 @@ export const NotificationIcon = ({
 }, count), React.createElement(_JSXStyle, {
   id: "1854025327",
   dynamic: [theme.secondary300]
-}, `a.__jsx-style-dynamic-selector{position:relative;margin:8px 24px 0 0;cursor:pointer;}span.__jsx-style-dynamic-selector{z-index:1;position:absolute;top:-6px;right:-10px;width:16px;height:16px;border-radius:50%;background-color:${theme.secondary300};color:#fff;font-size:9px;font-weight:500;line-height:16px;text-align:center;cursor:inherit;}`));
+}, ["a.__jsx-style-dynamic-selector{position:relative;margin:8px 24px 0 0;cursor:pointer;}", `span.__jsx-style-dynamic-selector{z-index:1;position:absolute;top:-6px;right:-10px;width:16px;height:16px;border-radius:50%;background-color:${theme.secondary300};color:#fff;font-size:9px;font-weight:500;line-height:16px;text-align:center;cursor:inherit;}`]));
 NotificationIcon.defaultProps = {
   count: 0
 };

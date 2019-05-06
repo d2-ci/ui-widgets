@@ -72,7 +72,7 @@ export default class Profile extends React.Component {
       email: user.email
     }) : null, React.createElement(_JSXStyle, {
       id: "661915851"
-    }, "div.jsx-661915851{position:relative;width:36px;height:36px;margin:2px 12px 0 24px;}"));
+    }, ["div.jsx-661915851{position:relative;width:36px;height:36px;margin:2px 12px 0 24px;}"]));
   }
 
 }
