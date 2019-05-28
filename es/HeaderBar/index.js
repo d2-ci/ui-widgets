@@ -32,15 +32,21 @@ export const HeaderBar = ({
       resource: 'me/dashboard'
     }
   });
-  if (loading) return React.createElement("span", null, "...");
   if (error) return React.createElement("span", null, `ERROR: ${error.message}`);
-  const locale = data.user.settings.keyUiLocale || 'en';
-  i18n.changeLanguage(locale);
+
+  if (!loading) {
+    // TODO: This will run every render which is probably wrong!  Also, setting the global locale shouldn't be done in the headerbar
+    const locale = data.user.settings.keyUiLocale || 'en';
+    i18n.changeLanguage(locale);
+  }
+
   return React.createElement("header", {
-    className: _JSXStyle.dynamic([["1245639209", [colors.white]]]) + " " + (className || "")
-  }, React.createElement(Logo, null), React.createElement(Title, {
+    className: _JSXStyle.dynamic([["1335571883", [colors.white]]]) + " " + (className || "")
+  }, React.createElement(Logo, null), !loading && React.createElement(React.Fragment, null, React.createElement(Title, {
     app: appName,
     instance: data.systemInfo.systemName
+  }), React.createElement("div", {
+    className: _JSXStyle.dynamic([["1335571883", [colors.white]]]) + " " + "right-control-spacer"
   }), React.createElement(Notifications, {
     interpretations: data.notifications.unreadInterpretations,
     messages: data.notifications.unreadMessageConversations
@@ -48,10 +54,10 @@ export const HeaderBar = ({
     apps: data.apps.modules
   }), React.createElement(Profile, {
     user: data.user
-  }), React.createElement(_JSXStyle, {
-    id: "1245639209",
+  })), React.createElement(_JSXStyle, {
+    id: "1335571883",
     dynamic: [colors.white]
-  }, [`header.__jsx-style-dynamic-selector{background-color:#2c6693;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;height:48px;border-bottom:1px solid rgba(32,32,32,0.15);color:${colors.white};}`]));
+  }, [`header.__jsx-style-dynamic-selector{background-color:#2c6693;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;height:48px;border-bottom:1px solid rgba(32,32,32,0.15);color:${colors.white};}`, ".right-control-spacer.__jsx-style-dynamic-selector{margin-left:auto;}"]));
 };
 HeaderBar.propTypes = {
   className: PropTypes.string,

@@ -53,17 +53,22 @@ var HeaderBar = function HeaderBar(_ref) {
       error = _useDataQuery.error,
       data = _useDataQuery.data;
 
-  if (loading) return _react.default.createElement("span", null, "...");
   if (error) return _react.default.createElement("span", null, "ERROR: ".concat(error.message));
-  var locale = data.user.settings.keyUiLocale || 'en';
 
-  _d2I18n.default.changeLanguage(locale);
+  if (!loading) {
+    // TODO: This will run every render which is probably wrong!  Also, setting the global locale shouldn't be done in the headerbar
+    var locale = data.user.settings.keyUiLocale || 'en';
+
+    _d2I18n.default.changeLanguage(locale);
+  }
 
   return _react.default.createElement("header", {
-    className: _style.default.dynamic([["1245639209", [_uiCore.colors.white]]]) + " " + (className || "")
-  }, _react.default.createElement(_Logo.Logo, null), _react.default.createElement(_Title.Title, {
+    className: _style.default.dynamic([["1335571883", [_uiCore.colors.white]]]) + " " + (className || "")
+  }, _react.default.createElement(_Logo.Logo, null), !loading && _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_Title.Title, {
     app: appName,
     instance: data.systemInfo.systemName
+  }), _react.default.createElement("div", {
+    className: _style.default.dynamic([["1335571883", [_uiCore.colors.white]]]) + " " + "right-control-spacer"
   }), _react.default.createElement(_Notifications.Notifications, {
     interpretations: data.notifications.unreadInterpretations,
     messages: data.notifications.unreadMessageConversations
@@ -71,10 +76,10 @@ var HeaderBar = function HeaderBar(_ref) {
     apps: data.apps.modules
   }), _react.default.createElement(_Profile.default, {
     user: data.user
-  }), _react.default.createElement(_style.default, {
-    id: "1245639209",
+  })), _react.default.createElement(_style.default, {
+    id: "1335571883",
     dynamic: [_uiCore.colors.white]
-  }, ["header.__jsx-style-dynamic-selector{background-color:#2c6693;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;height:48px;border-bottom:1px solid rgba(32,32,32,0.15);color:".concat(_uiCore.colors.white, ";}")]));
+  }, ["header.__jsx-style-dynamic-selector{background-color:#2c6693;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;height:48px;border-bottom:1px solid rgba(32,32,32,0.15);color:".concat(_uiCore.colors.white, ";}"), ".right-control-spacer.__jsx-style-dynamic-selector{margin-left:auto;}"]));
 };
 
 exports.HeaderBar = HeaderBar;

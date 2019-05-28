@@ -19,7 +19,7 @@ var Notifications = function Notifications(_ref) {
   var interpretations = _ref.interpretations,
       messages = _ref.messages;
   return _react.default.createElement("div", {
-    className: "jsx-1908221580"
+    className: "jsx-1272882457"
   }, _react.default.createElement(_NotificationIcon.NotificationIcon, {
     count: interpretations,
     href: "/dhis-web-interpretation",
@@ -30,8 +30,8 @@ var Notifications = function Notifications(_ref) {
     href: "/dhis-web-messaging",
     kind: "interpretation"
   }), _react.default.createElement(_style.default, {
-    id: "1908221580"
-  }, ["div.jsx-1908221580{margin-left:auto;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}"]));
+    id: "1272882457"
+  }, ["div.jsx-1272882457{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}"]));
 };
 
 exports.Notifications = Notifications;
