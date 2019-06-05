@@ -53,9 +53,7 @@ var HeaderBar = function HeaderBar(_ref) {
       error = _useDataQuery.error,
       data = _useDataQuery.data;
 
-  if (error) return _react.default.createElement("span", null, "ERROR: ".concat(error.message));
-
-  if (!loading) {
+  if (!loading && !error) {
     // TODO: This will run every render which is probably wrong!  Also, setting the global locale shouldn't be done in the headerbar
     var locale = data.user.settings.keyUiLocale || 'en';
 
@@ -64,7 +62,7 @@ var HeaderBar = function HeaderBar(_ref) {
 
   return _react.default.createElement("header", {
     className: _style.default.dynamic([["1335571883", [_uiCore.colors.white]]]) + " " + (className || "")
-  }, _react.default.createElement(_Logo.Logo, null), !loading && _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_Title.Title, {
+  }, _react.default.createElement(_Logo.Logo, null), !loading && !error && _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_Title.Title, {
     app: appName,
     instance: data.systemInfo.systemName
   }), _react.default.createElement("div", {

@@ -32,9 +32,8 @@ export const HeaderBar = ({
       resource: 'me/dashboard'
     }
   });
-  if (error) return React.createElement("span", null, `ERROR: ${error.message}`);
 
-  if (!loading) {
+  if (!loading && !error) {
     // TODO: This will run every render which is probably wrong!  Also, setting the global locale shouldn't be done in the headerbar
     const locale = data.user.settings.keyUiLocale || 'en';
     i18n.changeLanguage(locale);
@@ -42,7 +41,7 @@ export const HeaderBar = ({
 
   return React.createElement("header", {
     className: _JSXStyle.dynamic([["1335571883", [colors.white]]]) + " " + (className || "")
-  }, React.createElement(Logo, null), !loading && React.createElement(React.Fragment, null, React.createElement(Title, {
+  }, React.createElement(Logo, null), !loading && !error && React.createElement(React.Fragment, null, React.createElement(Title, {
     app: appName,
     instance: data.systemInfo.systemName
   }), React.createElement("div", {
