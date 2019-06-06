@@ -1,6 +1,6 @@
 {
   "name": "@dhis2/ui-widgets",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "./cjs/index.js",
   "module": "./es/index.js",
   "sideEffects": false,
@@ -57,7 +57,7 @@
     "typeface-roboto": "^0.0.54"
   },
   "peerDependencies": {
-    "@dhis2/app-runtime": "1.1.0",
+    "@dhis2/app-runtime": "^1.1.0",
     "prop-types": "^15",
     "react": "^16.8",
     "react-dom": "^16.8"
