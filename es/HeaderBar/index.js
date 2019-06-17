@@ -26,7 +26,7 @@ export const HeaderBar = ({
       resource: 'me'
     },
     apps: {
-      resource: '../../dhis-web-commons/menu/getModules.action'
+      resource: '../dhis-web-commons/menu/getModules.action'
     },
     notifications: {
       resource: 'me/dashboard'

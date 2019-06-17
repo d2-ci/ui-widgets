@@ -43,7 +43,7 @@ var HeaderBar = function HeaderBar(_ref) {
       resource: 'me'
     },
     apps: {
-      resource: '../../dhis-web-commons/menu/getModules.action'
+      resource: '../dhis-web-commons/menu/getModules.action'
     },
     notifications: {
       resource: 'me/dashboard'
