@@ -76,7 +76,8 @@ function TrailIcon(_ref) {
 function Search(_ref2) {
   var value = _ref2.value,
       onChange = _ref2.onChange,
-      onIconClick = _ref2.onIconClick;
+      onIconClick = _ref2.onIconClick,
+      contextPath = _ref2.contextPath;
   return _react.default.createElement("div", {
     className: "jsx-2764723183"
   }, _react.default.createElement("span", {
@@ -95,7 +96,7 @@ function Search(_ref2) {
   })), _react.default.createElement("span", {
     className: "jsx-2764723183"
   }, _react.default.createElement("a", {
-    href: "/dhis-web-menu-management",
+    href: "".concat(contextPath, "/dhis-web-menu-management"),
     className: "jsx-2764723183"
   }, _react.default.createElement(_Settings.Settings, {
     className: settingsIcon.className
@@ -110,7 +111,8 @@ Search.defaultProps = {
 Search.propTypes = {
   value: _propTypes.default.string.isRequired,
   onChange: _propTypes.default.func.isRequired,
-  onIconClick: _propTypes.default.func
+  onIconClick: _propTypes.default.func,
+  contextPath: _propTypes.default.string.isRequired
 };
 
 function Item(_ref3) {
@@ -149,12 +151,12 @@ function List(_ref4) {
   }).map(function (_ref6, idx) {
     var displayName = _ref6.displayName,
         name = _ref6.name,
-        namespace = _ref6.namespace,
+        defaultAction = _ref6.defaultAction,
         icon = _ref6.icon;
     return _react.default.createElement(Item, {
       key: "app-".concat(name, "-").concat(idx),
       name: displayName || name,
-      path: namespace,
+      path: defaultAction,
       img: icon
     });
   }), _react.default.createElement(_style.default, {
@@ -217,7 +219,8 @@ function (_React$Component) {
       }, _react.default.createElement(_uiCore.Card, null, _react.default.createElement(Search, {
         value: _this.state.filter,
         onChange: _this.onChange,
-        onIconClick: _this.onIconClick
+        onIconClick: _this.onIconClick,
+        contextPath: _this.props.contextPath
       }), _react.default.createElement(List, {
         apps: apps,
         filter: _this.state.filter
@@ -266,5 +269,6 @@ function (_React$Component) {
 
 exports.default = Apps;
 Apps.propTypes = {
-  apps: _propTypes.default.array.isRequired
+  apps: _propTypes.default.array.isRequired,
+  contextPath: _propTypes.default.string.isRequired
 };

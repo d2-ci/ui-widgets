@@ -81,13 +81,15 @@ var list = [{
 var ProfileContents = function ProfileContents(_ref) {
   var name = _ref.name,
       email = _ref.email,
-      avatar = _ref.avatar;
+      avatar = _ref.avatar,
+      contextPath = _ref.contextPath;
   return _react.default.createElement(_uiCore.Card, null, _react.default.createElement("div", {
     className: "jsx-4035402915"
   }, _react.default.createElement(_ProfileHeader.ProfileHeader, {
     name: name,
     email: email,
-    img: avatar
+    img: avatar,
+    contextPath: contextPath
   }), _react.default.createElement(_uiCore.Divider, {
     margin: "13px 0 7px 0"
   }), _react.default.createElement("ul", {
@@ -100,7 +102,7 @@ var ProfileContents = function ProfileContents(_ref) {
         target = _ref2.target,
         nobase = _ref2.nobase;
     return _react.default.createElement("a", {
-      href: link,
+      href: nobase ? link : "".concat(contextPath).concat(link),
       target: target,
       key: "h-p-".concat(value),
       className: "jsx-4035402915"
@@ -118,13 +120,15 @@ var ProfileContents = function ProfileContents(_ref) {
 var ProfileMenu = function ProfileMenu(_ref3) {
   var avatar = _ref3.avatar,
       name = _ref3.name,
-      email = _ref3.email;
+      email = _ref3.email,
+      contextPath = _ref3.contextPath;
   return _react.default.createElement("div", {
     className: "jsx-3620236321"
   }, _react.default.createElement(ProfileContents, {
     name: name,
     email: email,
-    avatar: avatar
+    avatar: avatar,
+    contextPath: contextPath
   }), _react.default.createElement(_style.default, {
     id: "3620236321"
   }, ["div.jsx-3620236321{z-index:10000;position:absolute;top:34px;right:-6px;width:310px;border-top:4px solid transparent;}"]));

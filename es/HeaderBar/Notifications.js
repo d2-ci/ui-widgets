@@ -4,17 +4,18 @@ import PropTypes from 'prop-types';
 import { NotificationIcon } from './NotificationIcon';
 export const Notifications = ({
   interpretations,
-  messages
+  messages,
+  contextPath
 }) => React.createElement("div", {
   className: "jsx-1272882457"
 }, React.createElement(NotificationIcon, {
   count: interpretations,
-  href: `/dhis-web-interpretation`,
+  href: `${contextPath}/dhis-web-interpretation`,
   kind: "message"
 }), React.createElement(NotificationIcon, {
   message: "email",
   count: messages,
-  href: `/dhis-web-messaging`,
+  href: `${contextPath}/dhis-web-messaging`,
   kind: "interpretation"
 }), React.createElement(_JSXStyle, {
   id: "1272882457"

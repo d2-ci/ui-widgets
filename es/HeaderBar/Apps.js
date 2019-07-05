@@ -41,7 +41,8 @@ function TrailIcon({
 function Search({
   value,
   onChange,
-  onIconClick
+  onIconClick,
+  contextPath
 }) {
   return React.createElement("div", {
     className: "jsx-2764723183"
@@ -61,7 +62,7 @@ function Search({
   })), React.createElement("span", {
     className: "jsx-2764723183"
   }, React.createElement("a", {
-    href: "/dhis-web-menu-management",
+    href: `${contextPath}/dhis-web-menu-management`,
     className: "jsx-2764723183"
   }, React.createElement(Settings, {
     className: settingsIcon.className
@@ -76,7 +77,8 @@ Search.defaultProps = {
 Search.propTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  onIconClick: PropTypes.func
+  onIconClick: PropTypes.func,
+  contextPath: PropTypes.string.isRequired
 };
 
 function Item({
@@ -118,12 +120,12 @@ function List({
   }).map(({
     displayName,
     name,
-    namespace,
+    defaultAction,
     icon
   }, idx) => React.createElement(Item, {
     key: `app-${name}-${idx}`,
     name: displayName || name,
-    path: namespace,
+    path: defaultAction,
     img: icon
   })), React.createElement(_JSXStyle, {
     id: "2076871745"
@@ -164,7 +166,8 @@ export default class Apps extends React.Component {
     }, React.createElement(Card, null, React.createElement(Search, {
       value: this.state.filter,
       onChange: this.onChange,
-      onIconClick: this.onIconClick
+      onIconClick: this.onIconClick,
+      contextPath: this.props.contextPath
     }), React.createElement(List, {
       apps: apps,
       filter: this.state.filter
@@ -198,5 +201,6 @@ export default class Apps extends React.Component {
 
 }
 Apps.propTypes = {
-  apps: PropTypes.array.isRequired
+  apps: PropTypes.array.isRequired,
+  contextPath: PropTypes.string.isRequired
 };

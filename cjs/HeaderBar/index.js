@@ -7,7 +7,7 @@ exports.HeaderBar = void 0;
 
 var _style = _interopRequireDefault(require("styled-jsx/style"));
 
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
@@ -28,6 +28,8 @@ var _Notifications = require("./Notifications.js");
 require("../locales");
 
 var _d2I18n = _interopRequireDefault(require("@dhis2/d2-i18n"));
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -53,6 +55,17 @@ var HeaderBar = function HeaderBar(_ref) {
       error = _useDataQuery.error,
       data = _useDataQuery.data;
 
+  (0, _react.useEffect)(function () {
+    var getPath = function getPath(path) {
+      return path.startsWith('http:') || path.startsWith('https:') ? path : "".concat(data.systemInfo.contextPath, "/api/").concat(path);
+    };
+
+    if (!loading && !error) data.apps.modules.forEach(function (app) {
+      app.icon = getPath(app.icon);
+      app.defaultAction = getPath(app.defaultAction);
+    });
+  }, [data]);
+
   if (!loading && !error) {
     // TODO: This will run every render which is probably wrong!  Also, setting the global locale shouldn't be done in the headerbar
     var locale = data.user.settings.keyUiLocale || 'en';
@@ -69,11 +82,14 @@ var HeaderBar = function HeaderBar(_ref) {
     className: _style.default.dynamic([["1335571883", [_uiCore.colors.white]]]) + " " + "right-control-spacer"
   }), _react.default.createElement(_Notifications.Notifications, {
     interpretations: data.notifications.unreadInterpretations,
-    messages: data.notifications.unreadMessageConversations
+    messages: data.notifications.unreadMessageConversations,
+    contextPath: data.systemInfo.contextPath
   }), _react.default.createElement(_Apps.default, {
-    apps: data.apps.modules
+    apps: data.apps.modules,
+    contextPath: data.systemInfo.contextPath
   }), _react.default.createElement(_Profile.default, {
-    user: data.user
+    user: data.user,
+    contextPath: data.systemInfo.contextPath
   })), _react.default.createElement(_style.default, {
     id: "1335571883",
     dynamic: [_uiCore.colors.white]

@@ -8,12 +8,12 @@ import { ProfileMenu } from './ProfileMenu.js';
 import { TextIcon } from '../TextIcon.js';
 import { ImageIcon } from '../ImageIcon.js';
 
-function avatarPath(avatar) {
+function avatarPath(avatar, contextPath) {
   if (!avatar) {
     return null;
   }
 
-  return `/api/fileResources/${avatar.id}/data`;
+  return `${contextPath}/api/fileResources/${avatar.id}/data`;
 }
 
 export default class Profile extends React.Component {
@@ -45,8 +45,8 @@ export default class Profile extends React.Component {
     document.removeEventListener('click', this.onDocClick);
   }
 
-  userIcon(me) {
-    const avatar = avatarPath(me.avatar);
+  userIcon(me, contextPath) {
+    const avatar = avatarPath(me.avatar, contextPath);
 
     if (avatar) {
       return React.createElement(ImageIcon, {
@@ -62,14 +62,18 @@ export default class Profile extends React.Component {
   }
 
   render() {
-    const user = this.props.user;
+    const {
+      user,
+      contextPath
+    } = this.props;
     return React.createElement("div", {
       ref: c => this.elContainer = c,
       className: "jsx-661915851"
-    }, this.userIcon(user), this.state.show ? React.createElement(ProfileMenu, {
-      avatar: avatarPath(user.avatar),
+    }, this.userIcon(user, contextPath), this.state.show ? React.createElement(ProfileMenu, {
+      avatar: avatarPath(user.avatar, contextPath),
       name: user.name,
-      email: user.email
+      email: user.email,
+      contextPath: contextPath
     }) : null, React.createElement(_JSXStyle, {
       id: "661915851"
     }, ["div.jsx-661915851{position:relative;width:36px;height:36px;margin:2px 12px 0 24px;}"]));
@@ -77,5 +81,6 @@ export default class Profile extends React.Component {
 
 }
 Profile.propTypes = {
-  user: PropTypes.object.isRequired
+  user: PropTypes.object.isRequired,
+  contextPath: PropTypes.string.isRequired
 };

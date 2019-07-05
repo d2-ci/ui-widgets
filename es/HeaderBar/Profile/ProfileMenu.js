@@ -61,13 +61,15 @@ const list = [{
 const ProfileContents = ({
   name,
   email,
-  avatar
+  avatar,
+  contextPath
 }) => React.createElement(Card, null, React.createElement("div", {
   className: "jsx-4035402915"
 }, React.createElement(ProfileHeader, {
   name: name,
   email: email,
-  img: avatar
+  img: avatar,
+  contextPath: contextPath
 }), React.createElement(Divider, {
   margin: "13px 0 7px 0"
 }), React.createElement("ul", {
@@ -80,7 +82,7 @@ const ProfileContents = ({
   target,
   nobase
 }) => React.createElement("a", {
-  href: link,
+  href: nobase ? link : `${contextPath}${link}`,
   target: target,
   key: `h-p-${value}`,
   className: "jsx-4035402915"
@@ -96,13 +98,15 @@ const ProfileContents = ({
 export const ProfileMenu = ({
   avatar,
   name,
-  email
+  email,
+  contextPath
 }) => React.createElement("div", {
   className: "jsx-3620236321"
 }, React.createElement(ProfileContents, {
   name: name,
   email: email,
-  avatar: avatar
+  avatar: avatar,
+  contextPath: contextPath
 }), React.createElement(_JSXStyle, {
   id: "3620236321"
 }, ["div.jsx-3620236321{z-index:10000;position:absolute;top:34px;right:-6px;width:310px;border-top:4px solid transparent;}"]));

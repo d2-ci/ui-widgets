@@ -17,17 +17,18 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Notifications = function Notifications(_ref) {
   var interpretations = _ref.interpretations,
-      messages = _ref.messages;
+      messages = _ref.messages,
+      contextPath = _ref.contextPath;
   return _react.default.createElement("div", {
     className: "jsx-1272882457"
   }, _react.default.createElement(_NotificationIcon.NotificationIcon, {
     count: interpretations,
-    href: "/dhis-web-interpretation",
+    href: "".concat(contextPath, "/dhis-web-interpretation"),
     kind: "message"
   }), _react.default.createElement(_NotificationIcon.NotificationIcon, {
     message: "email",
     count: messages,
-    href: "/dhis-web-messaging",
+    href: "".concat(contextPath, "/dhis-web-messaging"),
     kind: "interpretation"
   }), _react.default.createElement(_style.default, {
     id: "1272882457"

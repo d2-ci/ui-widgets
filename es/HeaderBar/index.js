@@ -1,5 +1,5 @@
 import _JSXStyle from "styled-jsx/style";
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { colors } from '@dhis2/ui-core';
 import Apps from './Apps';
@@ -32,6 +32,14 @@ export const HeaderBar = ({
       resource: 'me/dashboard'
     }
   });
+  useEffect(() => {
+    const getPath = path => path.startsWith('http:') || path.startsWith('https:') ? path : `${data.systemInfo.contextPath}/api/${path}`;
+
+    if (!loading && !error) data.apps.modules.forEach(app => {
+      app.icon = getPath(app.icon);
+      app.defaultAction = getPath(app.defaultAction);
+    });
+  }, [data]);
 
   if (!loading && !error) {
     // TODO: This will run every render which is probably wrong!  Also, setting the global locale shouldn't be done in the headerbar
@@ -48,11 +56,14 @@ export const HeaderBar = ({
     className: _JSXStyle.dynamic([["1335571883", [colors.white]]]) + " " + "right-control-spacer"
   }), React.createElement(Notifications, {
     interpretations: data.notifications.unreadInterpretations,
-    messages: data.notifications.unreadMessageConversations
+    messages: data.notifications.unreadMessageConversations,
+    contextPath: data.systemInfo.contextPath
   }), React.createElement(Apps, {
-    apps: data.apps.modules
+    apps: data.apps.modules,
+    contextPath: data.systemInfo.contextPath
   }), React.createElement(Profile, {
-    user: data.user
+    user: data.user,
+    contextPath: data.systemInfo.contextPath
   })), React.createElement(_JSXStyle, {
     id: "1335571883",
     dynamic: [colors.white]

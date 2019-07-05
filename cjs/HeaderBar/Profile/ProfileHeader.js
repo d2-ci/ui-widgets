@@ -38,9 +38,10 @@ var ProfileEmail = function ProfileEmail(_ref2) {
 };
 
 var ProfileEdit = function ProfileEdit(_ref3) {
-  var children = _ref3.children;
+  var children = _ref3.children,
+      contextPath = _ref3.contextPath;
   return _react.default.createElement("a", {
-    href: "/dhis-web-user-profile/#/profile",
+    href: "".concat(contextPath, "/dhis-web-user-profile/#/profile"),
     className: "jsx-3477773315"
   }, children, _react.default.createElement(_style.default, {
     id: "3477773315"
@@ -49,10 +50,13 @@ var ProfileEdit = function ProfileEdit(_ref3) {
 
 var ProfileDetails = function ProfileDetails(_ref4) {
   var name = _ref4.name,
-      email = _ref4.email;
+      email = _ref4.email,
+      contextPath = _ref4.contextPath;
   return _react.default.createElement("div", {
     className: "jsx-3814112749"
-  }, _react.default.createElement(ProfileName, null, name), _react.default.createElement(ProfileEmail, null, email), _react.default.createElement(ProfileEdit, null, _d2I18n.default.t('Edit profile')), _react.default.createElement(_style.default, {
+  }, _react.default.createElement(ProfileName, null, name), _react.default.createElement(ProfileEmail, null, email), _react.default.createElement(ProfileEdit, {
+    contextPath: contextPath
+  }, _d2I18n.default.t('Edit profile')), _react.default.createElement(_style.default, {
     id: "3814112749"
   }, ["div.jsx-3814112749{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;margin-left:20px;color:#000;font-size:14px;font-weight:400;}"]));
 };
@@ -60,7 +64,8 @@ var ProfileDetails = function ProfileDetails(_ref4) {
 var ProfileHeader = function ProfileHeader(_ref5) {
   var name = _ref5.name,
       email = _ref5.email,
-      img = _ref5.img;
+      img = _ref5.img,
+      contextPath = _ref5.contextPath;
   return _react.default.createElement("div", {
     className: "jsx-3625287538"
   }, img ? _react.default.createElement(_ImageIcon.ImageIcon, {
@@ -69,7 +74,8 @@ var ProfileHeader = function ProfileHeader(_ref5) {
     name: name
   }), _react.default.createElement(ProfileDetails, {
     name: name,
-    email: email
+    email: email,
+    contextPath: contextPath
   }), _react.default.createElement(_style.default, {
     id: "3625287538"
   }, ["div.jsx-3625287538{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;margin-left:24px;padding-top:20px;}"]));
@@ -79,5 +85,6 @@ exports.ProfileHeader = ProfileHeader;
 ProfileHeader.propTypes = {
   name: _propTypes.default.string,
   email: _propTypes.default.string,
-  img: _propTypes.default.string
+  img: _propTypes.default.string,
+  contextPath: _propTypes.default.string.isRequired
 };

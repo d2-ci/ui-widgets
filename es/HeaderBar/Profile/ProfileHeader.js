@@ -22,9 +22,10 @@ const ProfileEmail = ({
 }, ["div.jsx-1072768994{margin-bottom:6px;font-size:14px;line-height:16px;}"]));
 
 const ProfileEdit = ({
-  children
+  children,
+  contextPath
 }) => React.createElement("a", {
-  href: `/dhis-web-user-profile/#/profile`,
+  href: `${contextPath}/dhis-web-user-profile/#/profile`,
   className: "jsx-3477773315"
 }, children, React.createElement(_JSXStyle, {
   id: "3477773315"
@@ -32,17 +33,21 @@ const ProfileEdit = ({
 
 const ProfileDetails = ({
   name,
-  email
+  email,
+  contextPath
 }) => React.createElement("div", {
   className: "jsx-3814112749"
-}, React.createElement(ProfileName, null, name), React.createElement(ProfileEmail, null, email), React.createElement(ProfileEdit, null, i18n.t('Edit profile')), React.createElement(_JSXStyle, {
+}, React.createElement(ProfileName, null, name), React.createElement(ProfileEmail, null, email), React.createElement(ProfileEdit, {
+  contextPath: contextPath
+}, i18n.t('Edit profile')), React.createElement(_JSXStyle, {
   id: "3814112749"
 }, ["div.jsx-3814112749{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;margin-left:20px;color:#000;font-size:14px;font-weight:400;}"]));
 
 export const ProfileHeader = ({
   name,
   email,
-  img
+  img,
+  contextPath
 }) => React.createElement("div", {
   className: "jsx-3625287538"
 }, img ? React.createElement(ImageIcon, {
@@ -51,12 +56,14 @@ export const ProfileHeader = ({
   name: name
 }), React.createElement(ProfileDetails, {
   name: name,
-  email: email
+  email: email,
+  contextPath: contextPath
 }), React.createElement(_JSXStyle, {
   id: "3625287538"
 }, ["div.jsx-3625287538{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;margin-left:24px;padding-top:20px;}"]));
 ProfileHeader.propTypes = {
   name: PropTypes.string,
   email: PropTypes.string,
-  img: PropTypes.string
+  img: PropTypes.string,
+  contextPath: PropTypes.string.isRequired
 };

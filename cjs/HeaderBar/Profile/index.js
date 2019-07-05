@@ -39,12 +39,12 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function avatarPath(avatar) {
+function avatarPath(avatar, contextPath) {
   if (!avatar) {
     return null;
   }
 
-  return "/api/fileResources/".concat(avatar.id, "/data");
+  return "".concat(contextPath, "/api/fileResources/").concat(avatar.id, "/data");
 }
 
 var Profile =
@@ -98,8 +98,8 @@ function (_React$Component) {
     }
   }, {
     key: "userIcon",
-    value: function userIcon(me) {
-      var avatar = avatarPath(me.avatar);
+    value: function userIcon(me, contextPath) {
+      var avatar = avatarPath(me.avatar, contextPath);
 
       if (avatar) {
         return _react.default.createElement(_ImageIcon.ImageIcon, {
@@ -118,16 +118,19 @@ function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      var user = this.props.user;
+      var _this$props = this.props,
+          user = _this$props.user,
+          contextPath = _this$props.contextPath;
       return _react.default.createElement("div", {
         ref: function ref(c) {
           return _this2.elContainer = c;
         },
         className: "jsx-661915851"
-      }, this.userIcon(user), this.state.show ? _react.default.createElement(_ProfileMenu.ProfileMenu, {
-        avatar: avatarPath(user.avatar),
+      }, this.userIcon(user, contextPath), this.state.show ? _react.default.createElement(_ProfileMenu.ProfileMenu, {
+        avatar: avatarPath(user.avatar, contextPath),
         name: user.name,
-        email: user.email
+        email: user.email,
+        contextPath: contextPath
       }) : null, _react.default.createElement(_style.default, {
         id: "661915851"
       }, ["div.jsx-661915851{position:relative;width:36px;height:36px;margin:2px 12px 0 24px;}"]));
@@ -139,5 +142,6 @@ function (_React$Component) {
 
 exports.default = Profile;
 Profile.propTypes = {
-  user: _propTypes.default.object.isRequired
+  user: _propTypes.default.object.isRequired,
+  contextPath: _propTypes.default.string.isRequired
 };
